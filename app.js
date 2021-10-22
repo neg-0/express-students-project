@@ -2,8 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const morgan = require('morgan')
-
-const students = {}
+const students = require('./students.json')
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -13,7 +12,11 @@ app.get('/students', (req, res) => {
     // GET /students - returns a list of all students
     // this endpoint, optionally, accepts query parameters
     // GET /students?search=<query> - returns a list of students filtered on name matching the given query
-    res.send(students)
+    if (req.query.search) {
+        let name = req.query.search.toLowerCase()
+        let ret = students.filter(student => student.name[0].toLowerCase().includes(name) || student.name[1].toLowerCase().includes(name))
+        res.send(ret)
+    } else { res.send(students) }
 })
 
 app.listen(port, () => {
