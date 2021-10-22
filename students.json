@@ -4,69 +4,119 @@
         "name": [
             "Katlyn",
             "Quigley"
-        ]
+        ],
+        "grades": {
+            "english": 92,
+            "math": 85,
+            "history": 97
+        }
     },
     {
         "id": 2,
         "name": [
             "Zelma",
             "Mills"
-        ]
+        ],
+        "grades": {
+            "english": 80,
+            "math": 87,
+            "history": 90
+        }
     },
     {
         "id": 3,
         "name": [
             "Elias",
             "Feil"
-        ]
+        ],
+        "grades": {
+            "english": 75,
+            "math": 81,
+            "history": 80
+        }
     },
     {
         "id": 4,
         "name": [
             "Shana",
             "Mayer"
-        ]
+        ],
+        "grades": {
+            "english": 92,
+            "math": 97,
+            "history": 95
+        }
     },
     {
         "id": 5,
         "name": [
             "Ebba",
             "O'Reilly"
-        ]
+        ],
+        "grades": {
+            "english": 90,
+            "math": 85,
+            "history": 87
+        }
     },
     {
         "id": 6,
         "name": [
             "Modesta",
             "Jakubowski"
-        ]
+        ],
+        "grades": {
+            "english": 86,
+            "math": 85,
+            "history": 84
+        }
     },
     {
         "id": 7,
         "name": [
             "Krystel",
             "Ledner"
-        ]
+        ],
+        "grades": {
+            "english": 92,
+            "math": 85,
+            "history": 97
+        }
     },
     {
         "id": 8,
         "name": [
             "Wilfredo",
             "Schmitt"
-        ]
+        ],
+        "grades": {
+            "english": 92,
+            "math": 85,
+            "history": 97
+        }
     },
     {
         "id": 9,
         "name": [
             "Jovanny",
             "Auer"
-        ]
+        ],
+        "grades": {
+            "english": 92,
+            "math": 85,
+            "history": 97
+        }
     },
     {
         "id": 10,
         "name": [
             "Darby",
             "Heathcote"
-        ]
+        ],
+        "grades": {
+            "english": 92,
+            "math": 85,
+            "history": 97
+        }
     }
 ]
