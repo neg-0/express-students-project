@@ -55,10 +55,29 @@ app.post('/grades', (req, res) => {
 
 })
 
+app.post('/register', (req, res) => {
+    // POST /register - creates a new user, returns success status in JSON response
+    // (meaning you do not need to actually store the user info in a database. You do need
+    // to validate that the user supplied username and email)
+
+    let username = req.body.username
+    let email = req.body.email
+    let id = Math.max(...students.map(student => student.id)) + 1
+
+    if (!username || !email) {
+        res.status(400)
+        res.json("Error 400: Must include username and email")
+        return
+    }
+
+    let newStudent = { id, username, email }
+
+    students.push(newStudent)
+
+    res.status(200)
+    res.json(newStudent)
+})
+
 app.listen(port, () => {
     console.log(`Student project app listening at http://localhost:${port}`)
 })
-
-/*
-POST /register - creates a new user, returns success status in JSON response (meaning you do not need to actually store the user info in a database. You do need to validate that the user supplied username and email)
-*/
