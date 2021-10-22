@@ -29,11 +29,36 @@ app.get('/grades/:studentId', (req, res) => {
     res.send(students.find(student => student.id === parseInt(req.params.studentId)).grades)
 })
 
+app.post('/grades', (req, res) => {
+    // POST /grades - records a new grade, returns success status in JSON response (meaning you do not need to actually store the grade in a database. You do need to validate that the user supplied at least a grade, and a studentId)
+    let studentId = +req.body.studentId
+    let grade = JSON.parse(req.body.grade)
+
+    if (!studentId || !grade) {
+        res.status(400)
+        res.json("Error 400: Must include studentId and grade")
+        return
+    }
+
+    let studentIndex = students.findIndex((student) => student.id === studentId)
+
+    if (studentIndex === -1) {
+        res.status(400)
+        res.json("Error 400: Student not found")
+        return
+    }
+
+    students[studentIndex].grades = Object.assign(students[studentIndex].grades, grade)
+
+    res.status(200)
+    res.json(students[studentIndex].grades)
+
+})
+
 app.listen(port, () => {
     console.log(`Student project app listening at http://localhost:${port}`)
 })
 
 /*
-POST /grades - records a new grade, returns success status in JSON response (meaning you do not need to actually store the grade in a database. You do need to validate that the user supplied at least a grade, and a studentId)
 POST /register - creates a new user, returns success status in JSON response (meaning you do not need to actually store the user info in a database. You do need to validate that the user supplied username and email)
 */
