@@ -24,12 +24,16 @@ app.get('/students/:studentId', (req, res) => {
     res.send(students.find(student => student.id === parseInt(req.params.studentId)))
 })
 
+app.get('/grades/:studentId', (req, res) => {
+    // GET /grades/:studentId - returns all grades for a given student by student id
+    res.send(students.find(student => student.id === parseInt(req.params.studentId)).grades)
+})
+
 app.listen(port, () => {
     console.log(`Student project app listening at http://localhost:${port}`)
 })
 
 /*
-GET /grades/:studentId - returns all grades for a given student by student id
 POST /grades - records a new grade, returns success status in JSON response (meaning you do not need to actually store the grade in a database. You do need to validate that the user supplied at least a grade, and a studentId)
 POST /register - creates a new user, returns success status in JSON response (meaning you do not need to actually store the user info in a database. You do need to validate that the user supplied username and email)
 */
