@@ -48,7 +48,7 @@ app.post('/grades', (req, res) => {
         return
     }
 
-    students[studentIndex].grades = Object.assign(students[studentIndex].grades, grade)
+    students[studentIndex].grades = Object.assign(students[studentIndex].grades ?? {}, grade)
 
     res.status(200)
     res.json(students[studentIndex].grades)
